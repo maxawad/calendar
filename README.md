@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Calendar
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A small web app that draws a 24-hour day as a circular chart and lets you add colored, named "people" to it. It is an early experiment with the Napchart library, meant as the starting point for a shared day or schedule planner.
 
-## Available Scripts
+## What it does
 
-In the project directory, you can run:
+- Shows an interactive circular 24-hour chart (drawn on a canvas by [Napchart](https://napchart.com)).
+- Lets you type a name, pick a color from a palette, and click "add person" to add a new lane to the chart with a full-day block in that color.
+- You can draw and edit time blocks directly on the chart with the mouse.
+- Nothing is saved. The chart lives only in the browser tab, and there is no server or account.
 
-### `yarn start`
+## Tech stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- JavaScript with React 17 (class components), bootstrapped with Create React App (react-scripts 4)
+- [napchart](https://www.npmjs.com/package/napchart) for the chart
+- [react-color](https://www.npmjs.com/package/react-color) for the color picker
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Run it locally
 
-### `yarn test`
+You need Node.js and npm (or yarn). Node 16 or older is the safest choice for react-scripts 4. On newer Node versions, set `NODE_OPTIONS=--openssl-legacy-provider` before running the commands below.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install
+npm start
+```
 
-### `yarn build`
+Then open http://localhost:3000.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Build a static demo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The app has no backend and needs no API keys or environment variables, so it builds to plain static files:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm run build
+```
 
-### `yarn eject`
+Serve the `build/` folder with any static host (GitHub Pages, Netlify, `npx serve build`, and so on). Asset paths are relative, so it also works from a sub-folder.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Status
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Prototype. The chart works and people can be added, but there is no saving, no real calendar features yet, and the bundled test file is still the Create React App placeholder and does not pass.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Credits
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Built on [Napchart](https://github.com/larskarbo/napchart) by Lars Karbo, and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
